@@ -1,8 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Navbar from './components/Navbar'
+import Login from './components/Login'
+import { createMuiTheme } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/core/styles';
+import { purple } from '@material-ui/core/colors';
+import Button from '@material-ui/core/Button';
 
-class App extends Component {
+export default function App(){
 
   // handleFiles = (event) => {
   //     let files = event.target.files;
@@ -12,18 +17,32 @@ class App extends Component {
   //     document.getElementById("audio").load();
   // }
 
-  render() {
-    return(
-    <div className="App" >
-      <Navbar />
-      <Switch>
-        <Route />
-      </Switch>
-    </div>
-    )};
-}
+  const theme = createMuiTheme({
+    palette: {
+      primary: {
+        // Purple and green play nicely together.
+        main: "#212121",
+      },
+      secondary: {
+        // This is green.A700 as hex.
+        main: '#11cb5f',
+      },
+    },
+  });
 
-export default App;
+    return(
+      <ThemeProvider theme={theme}>
+        {/* <Button color="primary">Primary</Button>
+        <Button color="secondary">Secondary</Button> */}
+        <div className="App" >
+          <Navbar />
+          <Switch>
+            <Route path='/login' component={Login}/>
+          </Switch>
+        </div>
+      </ThemeProvider>
+    );
+}
 
 {/* <input onChange={this.handleFiles} type="file" id="upload" />
       <audio id="audio" controls>
