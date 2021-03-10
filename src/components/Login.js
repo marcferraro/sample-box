@@ -1,12 +1,22 @@
 import React from 'react';
-import { Link }  from 'react-router-dom'
+import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+// import { Link }  from 'react-router-dom'
 
-class Login extends React.Component {
-    render(){
+const useStyles = makeStyles((theme) => ({
+    root: {
+      '& > *': {
+        margin: theme.spacing(1),
+        width: '25ch',
+      },
+    },
+  }));
+
+export default function Login(){
+    const classes = useStyles();
         return(
-            <div>Hello from Login</div>
-        )
-    }
+            <form className={classes.root} noValidate autoComplete="off">
+                <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+            </form>
+  );
 }
-
-export default Login

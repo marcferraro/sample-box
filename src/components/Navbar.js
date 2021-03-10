@@ -31,9 +31,10 @@ export default function Navbar(){
                     <Typography variant="h6" className={classes.title}>
                         sampleBox
                     </Typography>
-                    <Button color="inherit">Login</Button>
+                    <Link to="/login" ><Button color="inherit">Login</Button></Link>
                     </Toolbar>
                 </AppBar>
+                <Toolbar />
             </div>
         )
 }
