@@ -24,16 +24,38 @@ function SampleForm(props){
     const [note, setNote] = useState("")
     const [date, setDate] = useState("")
     const [shared, setShared] = useState(false)
-    const [sample, setSample] = useState("")
+    const [sampleFile, setSampleFile] = useState("")
     const classes = useStyles();
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        console.log("SUBMIT")
+        
+        const sample = {
+            title: title,
+            note: note,
+            date: date,
+            shared: shared,
+            sample: sampleFile,
+            user_id: props.user.id
+        }
+
+        
+        const reqObj = {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                Accept: "application/json"
+              },
+            body: JSON.stringify(sample)
+        }
+
+        fetch('http://localhost:3000/samples', reqObj)
+        .then(resp => resp.json())
+        .then(sample => console.log(sample))
     }
 
     const handleFile = event => {
-        
+        setSampleFile(event.target.files[0])
     }
 
     return(

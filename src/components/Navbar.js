@@ -29,8 +29,8 @@ export default function Navbar(){
                     <Typography variant="h6" className={classes.title}>
                         sampleBox
                     </Typography>
-                      <Button color="secondary"><Link to="/sample-form" style={{ textDecoration: 'none', color: 'inherit' }}>New Sample</Link></Button>
-                      <Button color="inherit"><Link to="/login" style={{ textDecoration: 'none', color: 'inherit' }}>Login</Link></Button>
+                      <Link to="/sample-form" style={{ textDecoration: 'none', color: 'inherit' }}><Button color="secondary">New Sample</Button></Link>
+                      <Link to="/login" style={{ textDecoration: 'none', color: 'inherit' }}><Button color="inherit">Login</Button></Link>
                     </Toolbar>
                 </AppBar>
                 <Toolbar />
