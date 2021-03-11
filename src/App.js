@@ -4,8 +4,8 @@ import Navbar from './components/Navbar'
 import Login from './components/Login'
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/core/styles';
-import { purple } from '@material-ui/core/colors';
-import Button from '@material-ui/core/Button';
+// import { purple } from '@material-ui/core/colors';
+// import Button from '@material-ui/core/Button';
 
 export default function App(){
 
@@ -44,7 +44,7 @@ export default function App(){
     );
 }
 
-{/* <input onChange={this.handleFiles} type="file" id="upload" />
+/* <input onChange={this.handleFiles} type="file" id="upload" />
       <audio id="audio" controls>
         <source src="" id="src" />
-      </audio> */}
+      </audio> */
