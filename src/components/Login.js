@@ -41,8 +41,9 @@ function Login(props){
                 alert(user.error)
             } else {
                 // console.log(user)
-                localStorage.setItem('username', user.username)
+                // localStorage.setItem('username', user.username)
                 props.loginSuccess(user)
+                props.history.push('/samples')
                 // setUsername("")
             }
         })

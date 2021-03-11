@@ -29,7 +29,7 @@ export default function Navbar(){
                     <Typography variant="h6" className={classes.title}>
                         sampleBox
                     </Typography>
-                    <Button color="inherit"><Link to="/login" >Login</Link></Button>
+                      <Button color="inherit"><Link to="/login" style={{ textDecoration: 'none' }}>Login</Link></Button>
                     </Toolbar>
                 </AppBar>
                 <Toolbar />

@@ -1,5 +1,11 @@
 const samplesReducer = (state=[], action) => {
-    return state
+    switch (action.type){
+        case "CURRENT_USER":
+            
+        default:
+            return state
+    }
+    
 }
 
 export default samplesReducer
