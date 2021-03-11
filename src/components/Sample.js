@@ -9,7 +9,7 @@ import SkipPreviousIcon from '@material-ui/icons/SkipPrevious';
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import SkipNextIcon from '@material-ui/icons/SkipNext';
 
-const useStyles = makeStyles((theme) => ({
+const cardStyles = makeStyles((theme) => ({
     root: {
       width: '200px',
     },
@@ -35,40 +35,43 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
-
 function Sample(props){
-    const classes = useStyles();
-    const theme = useTheme();
+    const cardClasses = cardStyles();
+    // const theme = useTheme();
+    // console.log(theme.direction)
 
     return(
-        <Card className={classes.root}>
-      <div className={classes.details}>
-        <CardContent className={classes.content}>
-          <Typography component="h5" variant="h5">
-            {props.sample.title}
-          </Typography>
-          <Typography variant="subtitle1" color="textSecondary">
-            Mac Miller
-          </Typography>
-        </CardContent>
-        <div className={classes.controls}>
-          <IconButton aria-label="previous">
-            {theme.direction === 'rtl' ? <SkipNextIcon /> : <SkipPreviousIcon />}
-          </IconButton>
-          <IconButton aria-label="play/pause">
-            <PlayArrowIcon className={classes.playIcon} />
-          </IconButton>
-          <IconButton aria-label="next">
-            {theme.direction === 'rtl' ? <SkipPreviousIcon /> : <SkipNextIcon />}
-          </IconButton>
-        </div>
-      </div>
-      <CardMedia
-        className={classes.cover}
-        image="/static/images/cards/live-from-space.jpg"
-        title="Live from space album cover"
-      />
-    </Card>
+        <Card className={cardClasses.root}>
+            <div className={cardClasses.details}>
+                <CardContent className={cardClasses.content}>
+                    <Typography component="h5" variant="h5">
+                        {props.sample.title}
+                    </Typography>
+                    <Typography variant="subtitle1" color="textSecondary">
+                        {props.sample.note}
+                    </Typography>
+                    <Typography variant="subtitle1" color="textSecondary">
+                        {props.sample.date}
+                    </Typography>
+                </CardContent>
+                <div className={cardClasses.controls}>
+                    <IconButton aria-label="previous">
+                        <SkipPreviousIcon />
+                    </IconButton>
+                    <IconButton aria-label="play/pause">
+                        <PlayArrowIcon className={cardClasses.playIcon} />
+                    </IconButton>
+                    <IconButton aria-label="next">
+                        <SkipNextIcon />
+                    </IconButton>
+                </div>
+            </div>
+            <CardMedia
+                className={cardClasses.cover}
+                image="/static/images/cards/live-from-space.jpg"
+                title="Live from space album cover"
+            />
+        </Card>
     )
 }
 
