@@ -24,23 +24,30 @@ function SampleForm(props){
     const [note, setNote] = useState("")
     const [date, setDate] = useState("")
     const [shared, setShared] = useState(false)
+    const [sample, setSample] = useState("")
     const classes = useStyles();
 
-    const handleSubmit = () =>{
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        console.log("SUBMIT")
+    }
 
+    const handleFile = event => {
+        
     }
 
     return(
         <form onSubmit={handleSubmit} className={classes.root} noValidate autoComplete="off">
                 <TextField onChange={(event) => setTitle(event.target.value)} value={title} id="outlined-basic" label="Title" variant="outlined" />
-                <TextField onChange={(event) => setTitle(event.target.value)} value={note} id="outlined-basic" label="Note" variant="outlined" />
-                <TextField onChange={(event) => setTitle(event.target.value)} value={date} id="outlined-basic" label="Date" variant="outlined" />
+                <TextField onChange={(event) => setNote(event.target.value)} value={note} id="outlined-basic" label="Note" variant="outlined" />
+                <TextField onChange={(event) => setDate(event.target.value)} value={date} id="outlined-basic" label="Date" variant="outlined" />
                 <FormGroup>
                     <FormControlLabel
                         control={<Checkbox checked={shared} onChange={() => setShared(!shared)} name="share-sample" />}
                         label="Share Sample?"
                     />
                 </FormGroup>
+                <input onChange={handleFile} type="file" id="upload" />
                 <Button type="submit" variant="contained" color="secondary"endIcon={<ArrowForwardIosIcon />}>Submit</Button>
         </form>
     )
