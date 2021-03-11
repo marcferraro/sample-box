@@ -25,7 +25,7 @@ function Login(){
         event.preventDefault()
         
         const reqObj = {
-            method: "GET",
+            method: "POST",
             headers: {
                 'Content-Type': 'application/json',
                 Accept: "application/json"
@@ -33,14 +33,18 @@ function Login(){
             body: JSON.stringify({username: username})
         }
 
-        console.log(reqObj)
+        fetch('http://localhost:3000/login', reqObj)
+        .then(resp => resp.json())
+        .then(user => console.log(user))
+
+        setUsername("")
 
         
     }
 
         return(
             <form onSubmit={handleSubmit} className={classes.root} noValidate autoComplete="off">
-                <TextField onChange={(event) => setUsername(event.target.value)} id="outlined-basic" label="Username" variant="outlined" />
+                <TextField onChange={(event) => setUsername(event.target.value)} value={username} id="outlined-basic" label="Username" variant="outlined" />
                 <Button type="submit" variant="contained" color="secondary"endIcon={<ArrowForwardIosIcon />}>Submit</Button>
             </form>
   );
