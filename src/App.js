@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import Navbar from './components/Navbar'
 import Login from './components/Login'
 import SampleContainer from './components/SampleContainer'
+import SampleForm from './components/SampleForm'
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/core/styles';
 // import { purple } from '@material-ui/core/colors';
@@ -40,6 +41,7 @@ export default function App(){
           <Switch>
             <Route path='/login' component={Login}/>
             <Route path='/samples' component={SampleContainer}/>
+            <Route path='/sample-form' component={SampleForm}/>
 
           </Switch>
         </div>
