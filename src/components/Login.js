@@ -4,6 +4,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import { connect } from 'react-redux'
+import { loginSuccess } from '../actions'
 
 // import { Link }  from 'react-router-dom'
 
@@ -35,9 +36,15 @@ function Login(){
 
         fetch('http://localhost:3000/login', reqObj)
         .then(resp => resp.json())
-        .then(user => console.log(user))
-
-        setUsername("")
+        .then(user => {
+            if (user.error){
+                alert(user.error)
+            } else {
+                localStorage.setItem('username', user.username)
+                loginSuccess(user)
+                // setUsername("")
+            }
+        })
 
         
     }
@@ -51,7 +58,7 @@ function Login(){
 }
 
 const mapDispatchToProps = {
-    key: console.log("success")
+    loginSuccess: loginSuccess
 }
 
 export default connect(null, mapDispatchToProps)(Login)
