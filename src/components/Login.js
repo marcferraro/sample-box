@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
-function Login(){
+function Login(props){
     const [username, setUsername] = useState("")
     const classes = useStyles();
 
@@ -40,8 +40,9 @@ function Login(){
             if (user.error){
                 alert(user.error)
             } else {
+                // console.log(user)
                 localStorage.setItem('username', user.username)
-                loginSuccess(user)
+                props.loginSuccess(user)
                 // setUsername("")
             }
         })
