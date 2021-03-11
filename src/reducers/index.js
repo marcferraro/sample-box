@@ -3,9 +3,8 @@ import authReducer from './auth'
 import samplesReducer from './samples'
 
 const rootReducer = combineReducers({
-    auth: authReducer
-    // samples: samplesReducer
-    // posts: postsReducer
+    auth: authReducer,
+    samples: samplesReducer
 })
 
 export default rootReducer

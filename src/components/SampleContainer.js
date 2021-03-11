@@ -8,7 +8,7 @@ function SampleContainer(props){
     })
 
     return(
-        <div>Hello from container</div>
+        <div>{console.log(props.samples)}</div>
     )
 }
 
@@ -17,8 +17,8 @@ const mapStateToProps = state => {
         samples: state.samples
     }
 }
-const mapDispatchToProps = {
-    
-}
+// const mapDispatchToProps = {
 
-export default connect(mapStateToProps, mapDispatchToProps)(SampleContainer)
+// }
+
+export default connect(mapStateToProps)(SampleContainer)
