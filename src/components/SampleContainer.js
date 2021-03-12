@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Sample from './Sample';
+import SampleCard from './SampleCard';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -26,10 +26,9 @@ function SampleContainer(props){
         <Grid container className={gridClasses.root} spacing={2}>
             <Grid item xs={12}>
                 <Grid container justify="center" spacing={2}>
-                    {/* {props.samples.map(sample => <Sample key={sample.id} sample={sample}/>)} */}
                     {props.samples.map(sample => (
                         <Grid key={sample.id} item>
-                            <Sample key={sample.id} sample={sample} />
+                            <SampleCard key={sample.id} sample={sample} />
                         </Grid>
                     ))}
                 </Grid>

@@ -38,6 +38,7 @@ function SampleForm(props){
         // data.append('audio_file', sampleFile, sampleFile.name)
         
         data.append("title", title)
+        data.append("date", date)
         data.append("note", note)
         data.append("shared", shared)
         data.append("user_id", props.user.id)

@@ -6,10 +6,11 @@ import SampleContainer from './components/SampleContainer'
 import SampleForm from './components/SampleForm'
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/core/styles';
+import { connect } from 'react-redux';
 // import { purple } from '@material-ui/core/colors';
 // import Button from '@material-ui/core/Button';
 
-export default function App(){
+function App(props){
 
   // handleFiles = (event) => {
   //     let files = event.target.files;
@@ -42,12 +43,21 @@ export default function App(){
             <Route path='/login' component={Login}/>
             <Route path='/samples' component={SampleContainer}/>
             <Route path='/sample-form' component={SampleForm}/>
+            <Route path={`/sample/${props.sampleId}`} component={SampleForm}/>
 
           </Switch>
         </div>
       </ThemeProvider>
     );
 }
+
+const mapStateToProps = state => {
+  return{
+    sampleId: state.sample
+  }
+}
+
+export default connect(mapStateToProps)(App)
 
 /* <input onChange={this.handleFiles} type="file" id="upload" />
       <audio id="audio" controls>
