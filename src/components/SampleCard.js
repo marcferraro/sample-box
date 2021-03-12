@@ -9,6 +9,8 @@ import SkipPreviousIcon from '@material-ui/icons/SkipPrevious';
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import SkipNextIcon from '@material-ui/icons/SkipNext';
 import { Link }  from 'react-router-dom'
+import { connect } from 'react-redux';
+import { selectSample } from '../actions';
 
 const cardStyles = makeStyles((theme) => ({
     root: {
@@ -46,7 +48,7 @@ function Sample(props){
             <div className={cardClasses.details}>
                 <CardContent className={cardClasses.content}>
                     <Typography component="h5" variant="h5">
-                        <Link to="/sample" style={{ textDecoration: 'none'}}>{props.sample.title}</Link>
+                        <Link onClick={() => props.selectSample(props.sample)} to={`/sample/${props.sample.id}`} style={{ textDecoration: 'none'}}>{props.sample.title}</Link>
                     </Typography>
                     <Typography variant="subtitle1" color="textSecondary">
                         {props.sample.date}
@@ -73,4 +75,14 @@ function Sample(props){
     )
 }
 
-export default Sample
+// const mapStateToProps = state => {
+//   return {
+//     sampleId: state.sample
+//   }
+// }
+
+const mapDispatchToProps = {
+  selectSample: selectSample
+}
+
+export default connect(null, mapDispatchToProps)(Sample)

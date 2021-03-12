@@ -35,7 +35,7 @@ function SampleForm(props){
         const data = new FormData() 
         console.log(data)
         
-        // data.append('audio_file', sampleFile, sampleFile.name)
+        data.append('sample', sampleFile)
         
         data.append("title", title)
         data.append("date", date)

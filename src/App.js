@@ -4,6 +4,7 @@ import Navbar from './components/Navbar'
 import Login from './components/Login'
 import SampleContainer from './components/SampleContainer'
 import SampleForm from './components/SampleForm'
+import Sample from './components/Sample'
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
@@ -43,7 +44,7 @@ function App(props){
             <Route path='/login' component={Login}/>
             <Route path='/samples' component={SampleContainer}/>
             <Route path='/sample-form' component={SampleForm}/>
-            <Route path={`/sample/${props.sampleId}`} component={SampleForm}/>
+            <Route path={`/sample/:id`} component={Sample}/>
 
           </Switch>
         </div>
@@ -51,13 +52,13 @@ function App(props){
     );
 }
 
-const mapStateToProps = state => {
-  return{
-    sampleId: state.sample
-  }
-}
+// const mapStateToProps = state => {
+//   return{
+//     sampleId: state.sample
+//   }
+// }
 
-export default connect(mapStateToProps)(App)
+export default App
 
 /* <input onChange={this.handleFiles} type="file" id="upload" />
       <audio id="audio" controls>

@@ -8,6 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import SkipPreviousIcon from '@material-ui/icons/SkipPrevious';
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import SkipNextIcon from '@material-ui/icons/SkipNext';
+import { connect } from 'react-redux';
 
 const cardStyles = makeStyles((theme) => ({
     root: {
@@ -36,6 +37,9 @@ const cardStyles = makeStyles((theme) => ({
   }));
 
 function Sample(props){
+  // if (!props.sample){
+  //   returnprops.history.push('/login')
+  // }
     const cardClasses = cardStyles();
     // const theme = useTheme();
     // console.log(theme.direction)
@@ -75,4 +79,12 @@ function Sample(props){
     )
 }
 
-export default Sample
+const mapStateToProps = state => {
+  console.log(state.sample)
+  return {
+    sample: state.samples.find(sample => sample.id === state.sample)
+  }
+}
+
+
+export default connect(mapStateToProps)(Sample)
