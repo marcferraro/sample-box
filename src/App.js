@@ -8,7 +8,7 @@ import Sample from './components/Sample'
 import SampleEdit from './components/SampleEdit'
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/core/styles';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 // import { purple } from '@material-ui/core/colors';
 // import Button from '@material-ui/core/Button';
 

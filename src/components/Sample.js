@@ -48,6 +48,15 @@ function Sample(props){
     // const theme = useTheme();
     // console.log(theme.direction)
 
+    const handleDelete = () => {
+
+      fetch(`http://localhost:3000/samples/${props.sample.id}`, {method: "DELETE"})
+      .then(resp => resp.json())
+      .then(resp => {
+        
+      })
+    }
+
     return(
       <Box display="flex" justifyContent="center">
         <Card className={cardClasses.root}>
@@ -76,7 +85,7 @@ function Sample(props){
                 </div>
                 <span>
                 <Link to={`/sample/edit/${props.sample.id}`} style={{ textDecoration: 'none'}}><Button color="secondary">Edit Sample</Button></Link>
-                <Link to={`/sample/${props.sample.id}`} style={{ textDecoration: 'none'}}><Button color="secondary">Delete Sample</Button></Link>
+                <Button onClick={handleDelete} color="secondary">Delete Sample</Button>
                 </span>
             </div>
             <CardMedia
