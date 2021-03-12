@@ -50,8 +50,9 @@ function Sample(props){
       .then(resp => resp.json())
       .then(resp => {
         console.log(resp.message)
+        props.history.push('/samples')
         props.deleteSample(props.sample.id)
-        props.history.push('/login')
+        //WEIRD bug, where if the history.push was below deleteSample it would redirect to the old sample show page instead!
       })
     }
 
