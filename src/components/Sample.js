@@ -12,6 +12,7 @@ import { connect } from 'react-redux';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import { Link }  from 'react-router-dom'
+import { deleteSample } from '../actions'
 
 const cardStyles = makeStyles((theme) => ({
     root: {
@@ -41,19 +42,16 @@ const cardStyles = makeStyles((theme) => ({
   }));
 
 function Sample(props){
-  // if (!props.sample){
-  //   returnprops.history.push('/login')
-  // }
     const cardClasses = cardStyles();
-    // const theme = useTheme();
-    // console.log(theme.direction)
 
     const handleDelete = () => {
 
       fetch(`http://localhost:3000/samples/${props.sample.id}`, {method: "DELETE"})
       .then(resp => resp.json())
       .then(resp => {
-        
+        console.log(resp.message)
+        props.deleteSample(props.sample.id)
+        props.history.push('/login')
       })
     }
 
@@ -84,8 +82,8 @@ function Sample(props){
                     </IconButton>
                 </div>
                 <span>
-                <Link to={`/sample/edit/${props.sample.id}`} style={{ textDecoration: 'none'}}><Button color="secondary">Edit Sample</Button></Link>
-                <Button onClick={handleDelete} color="secondary">Delete Sample</Button>
+                  <Link to={`/sample/edit/${props.sample.id}`} style={{ textDecoration: 'none'}}><Button color="secondary">Edit Sample</Button></Link>
+                  <Button onClick={handleDelete} color="secondary">Delete Sample</Button>
                 </span>
             </div>
             <CardMedia
@@ -105,5 +103,8 @@ const mapStateToProps = state => {
   }
 }
 
+const mapDispatchToProps = {
+  deleteSample: deleteSample
+}
 
-export default connect(mapStateToProps)(Sample)
+export default connect(mapStateToProps, mapDispatchToProps)(Sample)

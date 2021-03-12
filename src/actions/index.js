@@ -26,6 +26,13 @@ export const updateSample = (sample) => {
   }
 }
 
+export const deleteSample = (sampleId) => {
+  return {
+    type: 'DELETE_SAMPLE',
+    sampleId: sampleId
+  }
+}
+
 // export const currentUser = (user) => {
 //   // console.log(user.name)
 //   return {

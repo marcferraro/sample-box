@@ -6,6 +6,8 @@ const samplesReducer = (state=[], action) => {
             return [...state, action.sample]
         case "UPDATE_SAMPLE":
             return state.map(sample => sample.id === action.sample.id ? action.sample : sample)
+        case "DELETE_SAMPLE":
+            return state.filter(sample => sample.id !== action.sampleId)
         default:
             return state
     }

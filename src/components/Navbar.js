@@ -24,7 +24,7 @@ function Navbar(props){
   const classes = useStyles();
 
   const loggedIn = () => {
-    console.log(props.user)
+    // console.log(props.user)
     return (
       <span>
         <Link to="/sample-form" style={{ textDecoration: 'none', color: 'inherit' }}><Button color="secondary">New Sample</Button></Link>
