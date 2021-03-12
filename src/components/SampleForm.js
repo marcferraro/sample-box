@@ -57,7 +57,10 @@ function SampleForm(props){
 
         fetch('http://localhost:3000/samples', reqObj)
         .then(resp => resp.json())
-        .then(sample => console.log(sample))
+        .then(sample => {
+            props.addSample(sample)
+            props.history.push('/samples')
+        })
     }
 
     const handleFile = event => {
