@@ -9,10 +9,12 @@ import SkipPreviousIcon from '@material-ui/icons/SkipPrevious';
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import SkipNextIcon from '@material-ui/icons/SkipNext';
 import { connect } from 'react-redux';
+import Box from '@material-ui/core/Box';
 
 const cardStyles = makeStyles((theme) => ({
     root: {
-      width: '200px',
+      width: '250px',
+      height: '250px',
     },
     details: {
       display: 'flex',
@@ -45,6 +47,7 @@ function Sample(props){
     // console.log(theme.direction)
 
     return(
+      <Box display="flex" justifyContent="center">
         <Card className={cardClasses.root}>
             <div className={cardClasses.details}>
                 <CardContent className={cardClasses.content}>
@@ -76,11 +79,12 @@ function Sample(props){
                 title="Live from space album cover"
             />
         </Card>
+      </Box>
     )
 }
 
 const mapStateToProps = state => {
-  console.log(state.sample)
+  // console.log(state.sample)
   return {
     sample: state.samples.find(sample => sample.id === state.sample)
   }
