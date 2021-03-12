@@ -5,6 +5,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import { Link }  from 'react-router-dom'
+import { connect } from 'react-redux';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -19,22 +20,44 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
-export default function Navbar(){
-    const classes = useStyles();
+function Navbar(props){
+  const classes = useStyles();
 
-        return(
-            <div className={classes.root}>
-                <AppBar color="primary">
-                    <Toolbar>
-                    <Typography variant="h6" className={classes.title}>
-                        sampleBox
-                    </Typography>
-                      <Link to="/sample-form" style={{ textDecoration: 'none', color: 'inherit' }}><Button color="secondary">New Sample</Button></Link>
-                      <Link to="/login" style={{ textDecoration: 'none', color: 'inherit' }}><Button color="inherit">Login</Button></Link>
-                    </Toolbar>
-                </AppBar>
-                <Toolbar />
-            </div>
-        )
+  const loggedIn = () => {
+    console.log(props.user)
+    return (
+      <span>
+        <Link to="/sample-form" style={{ textDecoration: 'none', color: 'inherit' }}><Button color="secondary">New Sample</Button></Link>
+        <Link to="/samples" style={{ textDecoration: 'none', color: 'inherit' }}><Button color="secondary">Samples</Button></Link>
+      </span>
+    )
+  }
+
+  const loggedOut = () => {
+    return (
+      <Link to="/login" style={{ textDecoration: 'none', color: 'inherit' }}><Button color="inherit">Login</Button></Link>
+    )
+  }
+
+  return(
+      <div className={classes.root}>
+          <AppBar color="primary">
+              <Toolbar>
+              <Typography variant="h6" className={classes.title}>
+                  sampleBox
+              </Typography>
+                {props.user ? loggedIn() : loggedOut()}
+              </Toolbar>
+          </AppBar>
+          <Toolbar />
+      </div>
+  )
 }
 
+const mapStateToProps = state => {
+  return{
+    user: state.auth
+  }
+}
+
+export default connect(mapStateToProps)(Navbar)

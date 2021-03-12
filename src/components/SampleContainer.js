@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import Sample from './Sample';
 import Grid from '@material-ui/core/Grid';

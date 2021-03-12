@@ -24,29 +24,34 @@ function SampleForm(props){
     const [note, setNote] = useState("")
     const [date, setDate] = useState("")
     const [shared, setShared] = useState(false)
-    const [sampleFile, setSampleFile] = useState("")
+    const [sampleFile, setSampleFile] = useState(null)
     const classes = useStyles();
 
     const handleSubmit = (event) => {
         event.preventDefault()
+        console.log(sampleFile)
         
-        const sample = {
-            title: title,
-            note: note,
-            date: date,
-            shared: shared,
-            sample: sampleFile,
-            user_id: props.user.id
-        }
+        const data = new FormData() 
+        console.log(data)
+        
+        // data.append('audio_file', sampleFile, sampleFile.name)
+        
+        data.append("title", title)
+        data.append("note", note)
+        data.append("shared", shared)
+        data.append("user_id", props.user.id)
+        // const infoObj = {
+        //     title: title,
+        //     note: note,
+        //     shared: shared,
+        //     userId: props.user.id
+        // }
 
-        
+        // data.append("info", infoObj)
+
         const reqObj = {
             method: "POST",
-            headers: {
-                'Content-Type': 'application/json',
-                Accept: "application/json"
-              },
-            body: JSON.stringify(sample)
+            body: data
         }
 
         fetch('http://localhost:3000/samples', reqObj)
@@ -69,11 +74,14 @@ function SampleForm(props){
                         label="Share Sample?"
                     />
                 </FormGroup>
-                <input onChange={handleFile} type="file" id="upload" />
+                <input onChange={handleFile} type="file"  id="upload" />
                 <Button type="submit" variant="contained" color="secondary"endIcon={<ArrowForwardIosIcon />}>Submit</Button>
         </form>
     )
 }
+
+// accept="audio/*"
+
 
 const mapStateToProps = state => {
     return{
