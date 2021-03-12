@@ -16,7 +16,7 @@ import { Link }  from 'react-router-dom'
 const cardStyles = makeStyles((theme) => ({
     root: {
       width: '250px',
-      height: '250px',
+      height: 'auto',
     },
     details: {
       display: 'flex',
