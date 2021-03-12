@@ -8,6 +8,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+import { updateSample } from '../actions'
 
 const useStyles = makeStyles((theme) => ({
 
@@ -27,8 +28,31 @@ function Sample(props){
     const [sampleFile, setSampleFile] = useState(null)
     const classes = useStyles();
 
-    const handleSubmit = () => {
-        console.log("submit")
+    const handleSubmit = (event) => {
+        event.preventDefault()
+
+        const data = new FormData() 
+        
+        // data.append('sample', sampleFile)
+        
+        data.append("title", title)
+        data.append("date", date)
+        data.append("note", note)
+        data.append("shared", shared)
+
+        const reqObj = {
+            method: "PATCH",
+            body: data
+        }
+
+        fetch(`http://localhost:3000/samples/${props.sample.id}`, reqObj)
+        .then(resp => resp.json())
+        .then(sample => {
+            props.updateSample(sample) 
+            props.history.push(`/samples`)
+        })
+
+
     }
 
     const handleFile = event => {
@@ -61,5 +85,9 @@ const mapStateToProps = state => {
   }
 }
 
+const mapDispatchToProps = {
+    updateSample: updateSample
+}
 
-export default connect(mapStateToProps)(Sample)
+
+export default connect(mapStateToProps, mapDispatchToProps)(Sample)

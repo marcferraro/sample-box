@@ -19,6 +19,13 @@ export const selectSample = (sample) => {
   }
 }
 
+export const updateSample = (sample) => {
+  return {
+    type: 'UPDATE_SAMPLE',
+    sample: sample
+  }
+}
+
 // export const currentUser = (user) => {
 //   // console.log(user.name)
 //   return {
