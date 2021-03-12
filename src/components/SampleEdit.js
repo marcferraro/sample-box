@@ -20,10 +20,10 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 function Sample(props){
-    const [title, setTitle] = useState("")
-    const [note, setNote] = useState("")
-    const [date, setDate] = useState("")
-    const [shared, setShared] = useState(false)
+    const [title, setTitle] = useState(props.sample.title)
+    const [note, setNote] = useState(props.sample.note)
+    const [date, setDate] = useState(props.sample.date)
+    const [shared, setShared] = useState(props.sample.shared.includes("true") ? true : false)
     const [sampleFile, setSampleFile] = useState(null)
     const classes = useStyles();
 
