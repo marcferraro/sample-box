@@ -66,6 +66,8 @@ function SampleForm(props){
 
     const handleFile = event => {
         setSampleFile(event.target.files[0])
+        document.querySelector('source').src = URL.createObjectURL(event.target.files[0])
+      document.getElementById("audio").load();
     }
 
     return(
@@ -80,6 +82,9 @@ function SampleForm(props){
                     />
                 </FormGroup>
                 <input onChange={handleFile} type="file"  id="upload" />
+                <audio id="audio" controls>
+                    <source src="" id="src" />
+                </audio>
                 <Button type="submit" variant="contained" color="secondary"endIcon={<ArrowForwardIosIcon />}>Submit</Button>
         </form>
     )
