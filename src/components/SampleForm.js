@@ -60,7 +60,7 @@ function SampleForm(props){
         .then(resp => resp.json())
         .then(sample => {
             props.addSample(sample)
-            props.history.push('/samples')
+            props.history.push(`/sample/${sample.id}`)
         })
     }
 

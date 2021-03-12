@@ -4,6 +4,8 @@ const sampleReducer = (state=null, action) => {
             return action.sample.id
         case "SELECT_SAMPLE":
             return action.sample.id
+        case "UPDATE_SAMPLE":
+            return action.sample.id
         default:
             return state
     }

@@ -49,7 +49,7 @@ function Sample(props){
         .then(resp => resp.json())
         .then(sample => {
             props.updateSample(sample) 
-            props.history.push(`/samples`)
+            props.history.push(`/sample/${sample.id}`)
         })
 
 
