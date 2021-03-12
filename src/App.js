@@ -5,6 +5,7 @@ import Login from './components/Login'
 import SampleContainer from './components/SampleContainer'
 import SampleForm from './components/SampleForm'
 import Sample from './components/Sample'
+import SampleEdit from './components/SampleEdit'
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
@@ -44,6 +45,7 @@ function App(props){
             <Route path='/login' component={Login}/>
             <Route path='/samples' component={SampleContainer}/>
             <Route path='/sample-form' component={SampleForm}/>
+            <Route path={`/sample/edit/:id`} component={SampleEdit}/>
             <Route path={`/sample/:id`} component={Sample}/>
 
           </Switch>

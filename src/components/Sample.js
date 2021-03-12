@@ -10,6 +10,8 @@ import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import SkipNextIcon from '@material-ui/icons/SkipNext';
 import { connect } from 'react-redux';
 import Box from '@material-ui/core/Box';
+import Button from '@material-ui/core/Button';
+import { Link }  from 'react-router-dom'
 
 const cardStyles = makeStyles((theme) => ({
     root: {
@@ -72,6 +74,10 @@ function Sample(props){
                         <SkipNextIcon />
                     </IconButton>
                 </div>
+                <span>
+                <Link to={`/sample/edit/${props.sample.id}`} style={{ textDecoration: 'none'}}><Button color="secondary">Edit Sample</Button></Link>
+                <Link to={`/sample/${props.sample.id}`} style={{ textDecoration: 'none'}}><Button color="secondary">Delete Sample</Button></Link>
+                </span>
             </div>
             <CardMedia
                 className={cardClasses.cover}
