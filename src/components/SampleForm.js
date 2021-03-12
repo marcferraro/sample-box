@@ -7,6 +7,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+import { addSample } from '../actions'
 
 const useStyles = makeStyles((theme) => ({
 
@@ -89,4 +90,8 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(SampleForm)
+const mapDispatchToProps = {
+    addSample: addSample
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SampleForm)
