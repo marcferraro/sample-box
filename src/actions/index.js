@@ -7,8 +7,8 @@ export const loginSuccess = (user) => {
 
 export const addSample = (sample) => {
   return {
-    type: 'LOGIN_SUCCESS',
-    user: user
+    type: 'ADD_SAMPLE_SUCCESS',
+    sample: sample
   }
 }
 
