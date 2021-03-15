@@ -81,7 +81,7 @@ function SampleForm(props){
                         label="Share Sample?"
                     />
                 </FormGroup>
-                <input onChange={handleFile} type="file"  id="upload" />
+                <input onChange={handleFile} type="file" name="audio" accept="audio/*" id="upload" />
                 <audio id="audio" controls>
                     <source src="" id="src" />
                 </audio>
