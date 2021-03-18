@@ -30,8 +30,10 @@ function SampleForm(props){
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        console.log(sampleFile)
+        // console.log(sampleFile)
         
+        // let file = new File(sampleFile, 'sample.wav')
+
         const data = new FormData() 
         console.log(data)
         
@@ -65,6 +67,7 @@ function SampleForm(props){
     }
 
     const handleFile = event => {
+        console.log(event.target.files[0])
         setSampleFile(event.target.files[0])
         document.querySelector('source').src = URL.createObjectURL(event.target.files[0])
       document.getElementById("audio").load();
