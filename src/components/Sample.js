@@ -70,9 +70,6 @@ function Sample(props){
                     <Typography variant="subtitle1" color="textSecondary">
                         {props.sample.date}
                     </Typography>
-                    <Typography>
-                      {"http://localhost:3000" + props.sample.sample_url}
-                    </Typography>
                     <audio controls>
                       <source src={"http://localhost:3000" + props.sample.sample_url}/>
                       Your browser does not support the audio element.
