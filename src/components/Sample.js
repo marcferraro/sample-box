@@ -44,6 +44,8 @@ const cardStyles = makeStyles((theme) => ({
 function Sample(props){
     const cardClasses = cardStyles();
 
+    const audioRef = useRef(null)
+
     const handleDelete = () => {
 
       fetch(`http://localhost:3000/samples/${props.sample.id}`, {method: "DELETE"})
@@ -57,7 +59,7 @@ function Sample(props){
     }
 
     const handlePlay = () => {
-      console.log('play')
+      console.log(audioRef)
     }
     
 
@@ -75,7 +77,7 @@ function Sample(props){
                     <Typography variant="subtitle1" color="textSecondary">
                         {props.sample.date}
                     </Typography>
-                    <audio src={"http://localhost:3000" + props.sample.sample_url} >
+                    <audio src={"http://localhost:3000" + props.sample.sample_url} ref={audioRef}>
                       Your browser does not support the audio element.
                     </audio>
                 </CardContent>
