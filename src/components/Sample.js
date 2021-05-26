@@ -16,7 +16,7 @@ import { deleteSample } from '../actions'
 
 const cardStyles = makeStyles((theme) => ({
     root: {
-      width: '250px',
+      // width: '250px',
       height: 'auto',
     },
     details: {
@@ -70,6 +70,13 @@ function Sample(props){
                     <Typography variant="subtitle1" color="textSecondary">
                         {props.sample.date}
                     </Typography>
+                    <Typography>
+                      {"http://localhost:3000" + props.sample.sample_url}
+                    </Typography>
+                    <audio controls>
+                      <source src={"http://localhost:3000" + props.sample.sample_url}/>
+                      Your browser does not support the audio element.
+                    </audio>
                 </CardContent>
                 <div className={cardClasses.controls}>
                     <IconButton aria-label="previous">
