@@ -56,6 +56,11 @@ function Sample(props){
       })
     }
 
+    const handlePlay = () => {
+      console.log('play')
+    }
+    
+
     return(
       <Box display="flex" justifyContent="center">
         <Card className={cardClasses.root}>
@@ -78,8 +83,11 @@ function Sample(props){
                     <IconButton aria-label="previous">
                         <SkipPreviousIcon />
                     </IconButton>
-                    <IconButton aria-label="play/pause">
+                    <IconButton aria-label="play/pause" onClick={handlePlay}>
                         <PlayArrowIcon className={cardClasses.playIcon} />
+                    </IconButton>
+                    <IconButton aria-label="next">
+                        <SkipNextIcon />
                     </IconButton>
                 </div>
                 <span>
