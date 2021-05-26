@@ -43,8 +43,8 @@ function SampleForm(props){
         data.append("date", date)
         data.append("note", note)
         data.append("shared", shared)
-        // data.append("user_id", props.user.id)
-        data.append("user_id", 2)
+        data.append("user_id", props.user.id)
+        // data.append("user_id", 2)
         // const infoObj = {
         //     title: title,
         //     note: note,
