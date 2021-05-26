@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -58,6 +58,16 @@ function Sample(props){
         props.deleteSample(props.sample.id)
         //WEIRD bug, where if the history.push was below deleteSample it would redirect to the old sample show page instead!
       })
+    }
+
+    useEffect(() => {
+      audioEvents()
+    })
+
+    const audioEvents = () => {
+      audioRef.current.onended = () => {
+        setPlaying(false)
+      }
     }
 
     const handlePlay = () => {
