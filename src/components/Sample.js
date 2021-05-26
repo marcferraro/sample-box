@@ -46,7 +46,7 @@ function Sample(props){
     const cardClasses = cardStyles();
 
     const audioRef = useRef(null)
-    const [state, setState] = useState(['test'])
+    const [playing, setPlaying] = useState(false)
 
     const handleDelete = () => {
 
@@ -91,7 +91,7 @@ function Sample(props){
                         <SkipPreviousIcon />
                     </IconButton>
                     <IconButton aria-label="play/pause" onClick={handlePlay}>
-                        <PlayArrowIcon className={cardClasses.playIcon} />
+                        {audioRef.current && audioRef.current.paused ? <PauseIcon className={cardClasses.playIcon} /> : <PlayArrowIcon className={cardClasses.playIcon} />}
                     </IconButton>
                     <IconButton aria-label="next">
                         <SkipNextIcon />
