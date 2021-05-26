@@ -61,9 +61,11 @@ function Sample(props){
     }
 
     const handlePlay = () => {
-      if(audioRef.current.paused){
+      if (audioRef.current.paused){
+        setPlaying(true)
         audioRef.current.play()
-      }else{
+      } else {
+        setPlaying(false)
         audioRef.current.pause()
       }
     }
@@ -91,7 +93,7 @@ function Sample(props){
                         <SkipPreviousIcon />
                     </IconButton>
                     <IconButton aria-label="play/pause" onClick={handlePlay}>
-                        {audioRef.current && audioRef.current.paused ? <PauseIcon className={cardClasses.playIcon} /> : <PlayArrowIcon className={cardClasses.playIcon} />}
+                        {playing ? <PauseIcon className={cardClasses.playIcon} /> : <PlayArrowIcon className={cardClasses.playIcon} />}
                     </IconButton>
                     <IconButton aria-label="next">
                         <SkipNextIcon />
