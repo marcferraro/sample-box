@@ -1,5 +1,6 @@
-import React, { useState, useEffect }  from 'react';
-import { Route, Switch } from 'react-router-dom';
+import React, { useEffect }  from 'react';
+import { useSelector, connect } from 'react-redux'
+import { Route, Switch, withRouter } from 'react-router-dom';
 import Navbar from './components/Navbar'
 import Login from './components/Login'
 import SampleContainer from './components/SampleContainer'
@@ -8,11 +9,14 @@ import Sample from './components/Sample'
 import SampleEdit from './components/SampleEdit'
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/core/styles';
+import { loginSuccess } from './actions'
 // import { connect } from 'react-redux';
 // import { purple } from '@material-ui/core/colors';
 // import Button from '@material-ui/core/Button';
 
 function App(props){
+
+  const auth = useSelector(state => state.auth)
 
   // handleFiles = (event) => {
   //     let files = event.target.files;
@@ -21,6 +25,32 @@ function App(props){
   //     document.querySelector('source').src = URL.createObjectURL(files[0])
   //     document.getElementById("audio").load();
   // }
+
+  useEffect(() => {
+    if(!auth){
+      const reqObj = {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json',
+            Accept: "application/json"
+          },
+        body: JSON.stringify({username: 'marcus'})
+      }
+
+      fetch('http://localhost:3000/login', reqObj)
+      .then(resp => resp.json())
+      .then(user => {
+          if (user.error){
+              alert(user.error)
+          } else {
+              // localStorage.setItem('username', user.username)
+              props.loginSuccess(user)
+              props.history.push('/samples')
+              // setUsername("")
+          }
+      })
+    }
+  })
 
   const theme = createMuiTheme({
     palette: {
@@ -54,13 +84,17 @@ function App(props){
     );
 }
 
+const mapDispatchToProps = {
+  loginSuccess: loginSuccess
+}
+
 // const mapStateToProps = state => {
 //   return{
 //     sampleId: state.sample
 //   }
 // }
 
-export default App
+export default connect(null, mapDispatchToProps)(withRouter(App))
 
 /* <input onChange={this.handleFiles} type="file" id="upload" />
       <audio id="audio" controls>
