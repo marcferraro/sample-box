@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -45,6 +45,7 @@ function Sample(props){
     const cardClasses = cardStyles();
 
     const audioRef = useRef(null)
+    const [state, setState] = useState(['test'])
 
     const handleDelete = () => {
 
@@ -59,7 +60,7 @@ function Sample(props){
     }
 
     const handlePlay = () => {
-      console.log(audioRef)
+      audioRef.current.play()
     }
     
 
