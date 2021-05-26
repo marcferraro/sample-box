@@ -70,7 +70,7 @@ function Sample(props){
                     <Typography variant="subtitle1" color="textSecondary">
                         {props.sample.date}
                     </Typography>
-                    <audio src={"http://localhost:3000" + props.sample.sample_url} controls>
+                    <audio src={"http://localhost:3000" + props.sample.sample_url} >
                       Your browser does not support the audio element.
                     </audio>
                 </CardContent>
@@ -80,9 +80,6 @@ function Sample(props){
                     </IconButton>
                     <IconButton aria-label="play/pause">
                         <PlayArrowIcon className={cardClasses.playIcon} />
-                    </IconButton>
-                    <IconButton aria-label="next">
-                        <SkipNextIcon />
                     </IconButton>
                 </div>
                 <span>
