@@ -60,7 +60,11 @@ function Sample(props){
     }
 
     const handlePlay = () => {
-      audioRef.current.play()
+      if(audioRef.current.paused){
+        audioRef.current.play()
+      }else{
+        audioRef.current.pause()
+      }
     }
     
 
