@@ -117,7 +117,6 @@ function Sample(props){
 }
 
 const mapStateToProps = state => {
-  // console.log(state.sample)
   return {
     sample: state.samples.find(sample => sample.id === state.sample)
   }
