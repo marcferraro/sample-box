@@ -10,31 +10,21 @@ import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import PauseIcon from '@material-ui/icons/Pause';
 import SkipNextIcon from '@material-ui/icons/SkipNext';
 import { connect } from 'react-redux';
-import Box from '@material-ui/core/Box';
+import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import { Link }  from 'react-router-dom'
 import { deleteSample } from '../actions'
 
 const cardStyles = makeStyles((theme) => ({
     root: {
-      // width: '250px',
-      height: 'auto',
-    },
-    details: {
-      display: 'flex',
-      flexDirection: 'column',
+      width: '500px',
+      height: '500px',
     },
     content: {
       flex: '1 0 auto',
     },
     cover: {
       width: 151,
-    },
-    controls: {
-      display: 'flex',
-      alignItems: 'center',
-      paddingLeft: theme.spacing(1),
-      paddingBottom: theme.spacing(1),
     },
     playIcon: {
       height: 38,
@@ -81,46 +71,48 @@ function Sample(props){
     }
     
     return(
-      <Box display="flex" justifyContent="center">
-        <Card className={cardClasses.root}>
-            <div className={cardClasses.details}>
-                <CardContent className={cardClasses.content}>
-                    <Typography component="h5" variant="h5">
-                        {props.sample.title}
-                    </Typography>
-                    <Typography variant="subtitle1" color="textSecondary">
-                        {props.sample.note}
-                    </Typography>
-                    <Typography variant="subtitle1" color="textSecondary">
-                        {props.sample.date}
-                    </Typography>
-                    <audio src={"http://localhost:3000" + props.sample.sample_url} ref={audioRef}>
-                      Your browser does not support the audio element.
-                    </audio>
-                </CardContent>
-                <div className={cardClasses.controls}>
-                    <IconButton aria-label="previous">
-                        <SkipPreviousIcon />
-                    </IconButton>
-                    <IconButton aria-label="play/pause" onClick={handlePlay}>
-                        {playing ? <PauseIcon className={cardClasses.playIcon} /> : <PlayArrowIcon className={cardClasses.playIcon} />}
-                    </IconButton>
-                    <IconButton aria-label="next">
-                        <SkipNextIcon />
-                    </IconButton>
-                </div>
-                <span>
-                  <Link to={`/sample/edit/${props.sample.id}`} style={{ textDecoration: 'none'}}><Button color="secondary">Edit Sample</Button></Link>
-                  <Button onClick={handleDelete} color="secondary">Delete Sample</Button>
-                </span>
-            </div>
-            <CardMedia
-                className={cardClasses.cover}
-                image="/static/images/cards/live-from-space.jpg"
-                title="Live from space album cover"
-            />
-        </Card>
-      </Box>
+      <Grid container direction="row" justify="center" alignItems="center">
+        <Grid item>
+          <Card className={cardClasses.root}>
+            <Grid container className={cardClasses.details} direction="column" justify="center" alignItems="center">
+                  <CardContent className={cardClasses.content}>
+                      <Typography component="h4" variant="h4">
+                          {props.sample.title}
+                      </Typography>
+                      <Typography variant="subtitle1" color="textSecondary">
+                          {props.sample.note}
+                      </Typography>
+                      <Typography variant="subtitle1" color="textSecondary">
+                          {props.sample.date}
+                      </Typography>
+                      <audio src={"http://localhost:3000" + props.sample.sample_url} ref={audioRef}>
+                        Your browser does not support the audio element.
+                      </audio>
+                  </CardContent>
+                  <div className={cardClasses.controls}>
+                      <IconButton aria-label="previous">
+                          <SkipPreviousIcon />
+                      </IconButton>
+                      <IconButton aria-label="play/pause" onClick={handlePlay}>
+                          {playing ? <PauseIcon className={cardClasses.playIcon} /> : <PlayArrowIcon className={cardClasses.playIcon} />}
+                      </IconButton>
+                      <IconButton aria-label="next">
+                          <SkipNextIcon />
+                      </IconButton>
+                  </div>
+                  <span>
+                    <Link to={`/sample/edit/${props.sample.id}`} style={{ textDecoration: 'none'}}><Button color="secondary">Edit Sample</Button></Link>
+                    <Button onClick={handleDelete} color="secondary">Delete Sample</Button>
+                  </span>
+              <CardMedia
+                  className={cardClasses.cover}
+                  image="/static/images/cards/live-from-space.jpg"
+                  title="Live from space album cover"
+              />
+            </Grid>
+          </Card>
+        </Grid>
+      </Grid>
     )
 }
 
