@@ -9,6 +9,7 @@ import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import { addSample } from '../actions'
+import { Typography } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
 
@@ -18,6 +19,9 @@ const useStyles = makeStyles((theme) => ({
         width: '25ch',
       },
     },
+    form: {
+        marginTop: "2%"
+    }
   }));
 
 
@@ -31,9 +35,6 @@ function SampleForm(props){
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        // console.log(sampleFile)
-        
-        // let file = new File(sampleFile, 'sample.wav')
 
         const data = new FormData() 
         console.log(data)
@@ -45,15 +46,6 @@ function SampleForm(props){
         data.append("note", note)
         data.append("shared", shared)
         data.append("user_id", props.user.id)
-        // data.append("user_id", 2)
-        // const infoObj = {
-        //     title: title,
-        //     note: note,
-        //     shared: shared,
-        //     userId: props.user.id
-        // }
-
-        // data.append("info", infoObj)
 
         const reqObj = {
             method: "POST",
@@ -76,9 +68,16 @@ function SampleForm(props){
     }
 
     return(
-        <>
-        <Grid container direction="column" justify="center" alignItems="center">
-                {/* <Grid container direction="column" justify="center" alignItems="center"> */}
+        <Grid container className={classes.form} direction="column" justify="flex-start" alignItems="center">
+            <Grid item>
+
+                <Grid container direction="column" justify="flex-start" alignItems="flex-start">
+
+                    <Grid item>
+                        <Typography variant="h3" gutterBottom>
+                            New Sample
+                        </Typography>
+                    </Grid>
                     <Grid item>
                         <Grid container spacing={1} direction="row" justify="center" alignItems="center">
                             <Grid item>
@@ -92,27 +91,26 @@ function SampleForm(props){
                             </Grid>
                         </Grid>
                     </Grid>
-                    {/* <FormGroup> */}
-                        <FormControlLabel
-                            control={<Checkbox checked={shared} onChange={() => setShared(!shared)} name="share-sample" />}
-                            label="Share Sample?"
-                        />
-                    {/* </FormGroup> */}
-                    <input onChange={handleFile} type="file" name="audio" accept="audio/*" id="upload" />
-                    <Button type="submit" onClick={handleSubmit} variant="contained" color="secondary"endIcon={<ArrowForwardIosIcon />}>Submit</Button>
-                {/* </Grid> */}
-            <audio id="audio" controls>
-                <source src="" id="src" />
-            </audio>
+                    <Grid item style={{paddingTop: 24}}>
+                            <input onChange={handleFile} type="file" name="audio" accept="audio/*" id="upload" />
+                    </Grid>
+                    <Grid item>
+                        <Grid container spacing={1} direction="row" justify="center" alignItems="center">
+                            <Grid item>
+                                <FormControlLabel
+                                    control={<Checkbox checked={shared} onChange={() => setShared(!shared)} name="share-sample" />}
+                                    label="Share Sample?"
+                                />
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                            <Button type="submit" onClick={handleSubmit} variant="contained" color="secondary"endIcon={<ArrowForwardIosIcon />}>Submit</Button>
+                    <audio id="audio" controls>
+                        <source src="" id="src" />
+                    </audio>
+                </Grid>
+            </Grid>
         </Grid>
-        {/* <Grid container direction="column">
-            <TextField variant="outlined"/>
-            <TextField />
-            <TextField />
-            <TextField />
-            <TextField />
-        </Grid> */}
-        </>
     )
 }
 
