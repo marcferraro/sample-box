@@ -76,22 +76,41 @@ function SampleForm(props){
     }
 
     return(
-        <form onSubmit={handleSubmit} className={classes.root} noValidate autoComplete="off">
-                <TextField onChange={(event) => setTitle(event.target.value)} value={title} id="outlined-basic" label="Title" variant="outlined" />
-                <TextField onChange={(event) => setNote(event.target.value)} value={note} id="outlined-basic" label="Note" variant="outlined" />
-                <TextField onChange={(event) => setDate(event.target.value)} value={date} id="outlined-basic" label="Date" variant="outlined" />
-                <FormGroup>
-                    <FormControlLabel
-                        control={<Checkbox checked={shared} onChange={() => setShared(!shared)} name="share-sample" />}
-                        label="Share Sample?"
-                    />
-                </FormGroup>
-                <input onChange={handleFile} type="file" name="audio" accept="audio/*" id="upload" />
-                <audio id="audio" controls>
-                    <source src="" id="src" />
-                </audio>
-                <Button type="submit" variant="contained" color="secondary"endIcon={<ArrowForwardIosIcon />}>Submit</Button>
-        </form>
+        <>
+        <Grid container direction="column" justify="center" alignItems="center">
+            {/* <form onSubmit={handleSubmit} className={classes.root} noValidate autoComplete="off"> */}
+                {/* <Grid container direction="column" justify="center" alignItems="center"> */}
+                    <Grid item>
+                        <Grid container direction="row" justify="flex-start" alignItems="flex-start">
+                            <Grid item>
+                                <TextField onChange={(event) => setTitle(event.target.value)} value={title} label="Title" variant="outlined" />
+                                <TextField onChange={(event) => setNote(event.target.value)} value={note} label="Note" variant="outlined" />
+                                <TextField onChange={(event) => setDate(event.target.value)} value={date} label="Date" variant="outlined" />
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                    {/* <FormGroup> */}
+                        <FormControlLabel
+                            control={<Checkbox checked={shared} onChange={() => setShared(!shared)} name="share-sample" />}
+                            label="Share Sample?"
+                        />
+                    {/* </FormGroup> */}
+                    <input onChange={handleFile} type="file" name="audio" accept="audio/*" id="upload" />
+                    <Button type="submit" onClick={handleSubmit} variant="contained" color="secondary"endIcon={<ArrowForwardIosIcon />}>Submit</Button>
+                {/* </Grid> */}
+            {/* </form> */}
+            <audio id="audio" controls>
+                <source src="" id="src" />
+            </audio>
+        </Grid>
+        {/* <Grid container direction="column">
+            <TextField variant="outlined"/>
+            <TextField />
+            <TextField />
+            <TextField />
+            <TextField />
+        </Grid> */}
+        </>
     )
 }
 
