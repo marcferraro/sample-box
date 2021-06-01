@@ -94,7 +94,7 @@ function SampleForm(props){
                     <Grid item style={{paddingTop: 24}}>
                             <input onChange={handleFile} type="file" name="audio" accept="audio/*" id="upload" />
                     </Grid>
-                    <Grid item>
+                    <Grid item style={{paddingTop: 24}}>
                         <Grid container spacing={1} direction="row" justify="center" alignItems="center">
                             <Grid item>
                                 <FormControlLabel
@@ -104,10 +104,14 @@ function SampleForm(props){
                             </Grid>
                         </Grid>
                     </Grid>
+                    <Grid item style={{paddingTop: 15}}>
                             <Button type="submit" onClick={handleSubmit} variant="contained" color="secondary"endIcon={<ArrowForwardIosIcon />}>Submit</Button>
-                    <audio id="audio" controls>
-                        <source src="" id="src" />
-                    </audio>
+                    </Grid>
+                    <Grid item style={{paddingTop: 24}}>
+                        <audio id="audio" controls>
+                            <source src="" id="src" />
+                        </audio>
+                    </Grid>
                 </Grid>
             </Grid>
         </Grid>
