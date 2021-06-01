@@ -78,13 +78,16 @@ function SampleForm(props){
     return(
         <>
         <Grid container direction="column" justify="center" alignItems="center">
-            {/* <form onSubmit={handleSubmit} className={classes.root} noValidate autoComplete="off"> */}
                 {/* <Grid container direction="column" justify="center" alignItems="center"> */}
                     <Grid item>
-                        <Grid container direction="row" justify="flex-start" alignItems="flex-start">
+                        <Grid container spacing={1} direction="row" justify="center" alignItems="center">
                             <Grid item>
                                 <TextField onChange={(event) => setTitle(event.target.value)} value={title} label="Title" variant="outlined" />
+                            </Grid>
+                            <Grid item>
                                 <TextField onChange={(event) => setNote(event.target.value)} value={note} label="Note" variant="outlined" />
+                            </Grid>
+                            <Grid item>
                                 <TextField onChange={(event) => setDate(event.target.value)} value={date} label="Date" variant="outlined" />
                             </Grid>
                         </Grid>
@@ -98,7 +101,6 @@ function SampleForm(props){
                     <input onChange={handleFile} type="file" name="audio" accept="audio/*" id="upload" />
                     <Button type="submit" onClick={handleSubmit} variant="contained" color="secondary"endIcon={<ArrowForwardIosIcon />}>Submit</Button>
                 {/* </Grid> */}
-            {/* </form> */}
             <audio id="audio" controls>
                 <source src="" id="src" />
             </audio>
