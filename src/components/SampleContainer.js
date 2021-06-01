@@ -20,8 +20,7 @@ const gridStyles = makeStyles((theme) => ({
 
 function SampleContainer(props){
     const gridClasses = gridStyles();
-
-
+    
     return(
         <Grid container className={gridClasses.root} spacing={2}>
             <Grid item xs={12}>

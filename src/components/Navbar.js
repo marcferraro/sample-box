@@ -28,7 +28,8 @@ function Navbar(props){
     return (
       <span>
         <Link to="/sample-form" style={{ textDecoration: 'none', color: 'inherit' }}><Button color="secondary">New Sample</Button></Link>
-        <Link to="/samples" style={{ textDecoration: 'none', color: 'inherit' }}><Button color="secondary">Samples</Button></Link>
+        <Link to="/samples" style={{ textDecoration: 'none', color: 'inherit' }}><Button color="secondary">Public Samples</Button></Link>
+        <Link to="/my-samples" style={{ textDecoration: 'none', color: 'inherit' }}><Button color="secondary">My Samples</Button></Link>
         <Link to="/logout" style={{ textDecoration: 'none', color: 'inherit' }}><Button color="inherit">Logout</Button></Link>
       </span>
     )
