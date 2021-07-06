@@ -22,7 +22,7 @@ function SampleContainer(props){
     const gridClasses = gridStyles();
     
     return(
-        <Grid container className={gridClasses.root} spacing={2}>
+        <Grid container className={gridClasses.root}>
             {/* <Grid item xs={12}>
                 <Grid container justify="center" spacing={2}>
                     {props.samples.map(sample => (
