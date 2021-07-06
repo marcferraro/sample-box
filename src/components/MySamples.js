@@ -18,7 +18,7 @@ const gridStyles = makeStyles((theme) => ({
 }));
 
 
-const SampleContainer = props => {
+const MySamples = props => {
     const gridClasses = gridStyles();
     
     return(
@@ -45,4 +45,4 @@ const mapStateToProps = state => {
 
 // }
 
-export default connect(mapStateToProps)(SampleContainer)
+export default connect(mapStateToProps)(MySamples)
