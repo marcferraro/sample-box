@@ -1,7 +1,15 @@
 const samplesReducer = (state=[], action) => {
     switch (action.type){
         case "LOGIN_SUCCESS":
-            return [...state, ...action.user.samples]
+            let samples = []
+            fetch('http://localhost:3000/samples')
+            .then(resp => resp.json())
+            .then(data => {
+                samples = [...data]
+                console.log(data, 'data')
+            }) 
+            console.log(samples,'samples')
+            return [...state, ...samples]
         case "ADD_SAMPLE_SUCCESS":
             return [...state, action.sample]
         case "UPDATE_SAMPLE":
@@ -11,7 +19,6 @@ const samplesReducer = (state=[], action) => {
         default:
             return state
     }
-    
 }
 
 export default samplesReducer
