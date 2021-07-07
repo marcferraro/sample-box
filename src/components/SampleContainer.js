@@ -19,13 +19,16 @@ const gridStyles = makeStyles((theme) => ({
 
 
 const SampleContainer = props => {
+    const samples = useSelector(state => state.samples)
+    console.log(samples)
+
     const gridClasses = gridStyles();
     
     return(
         <Grid container className={gridClasses.root} spacing={2}>
             <Grid item xs={12}>
                 <Grid container justify="center" spacing={2}>
-                    {props.samples.map(sample => (
+                    {samples.map(sample => (
                         <Grid key={sample.id} item>
                             <SampleCard key={sample.id} sample={sample} />
                         </Grid>
