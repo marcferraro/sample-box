@@ -18,7 +18,7 @@ const gridStyles = makeStyles((theme) => ({
 }));
 
 
-function SampleContainer(props){
+const SampleContainer = props => {
     const gridClasses = gridStyles();
     
     return(
