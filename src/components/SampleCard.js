@@ -44,6 +44,16 @@ function Sample(props){
     // const theme = useTheme();
     // console.log(theme.direction)
 
+    const handlePlay = () => {
+      if (audioRef.current.paused){
+        setPlaying(true)
+        audioRef.current.play()
+      } else {
+        setPlaying(false)
+        audioRef.current.pause()
+      }
+    }
+
     return(
         <Card className={cardClasses.root}>
             <div className={cardClasses.details}>
