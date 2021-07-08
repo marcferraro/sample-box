@@ -41,6 +41,7 @@ const cardStyles = makeStyles((theme) => ({
 function Sample(props){
     const cardClasses = cardStyles();
     const audioRef = useRef(null)
+    const [playing, setPlaying] = useState(false)
     // const theme = useTheme();
     // console.log(theme.direction)
 
