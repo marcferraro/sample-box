@@ -54,7 +54,10 @@ function Sample(props){
                         {props.sample.date}
                     </Typography>
                 </CardContent>
-                <div className={cardClasses.controls}>
+                  <audio src={"http://localhost:3000" + props.sample.sample_url} ref={audioRef}>
+                          Your browser does not support the audio element.
+                        </audio>
+                  <div className={cardClasses.controls}>
                     <IconButton aria-label="previous">
                         <SkipPreviousIcon />
                     </IconButton>
