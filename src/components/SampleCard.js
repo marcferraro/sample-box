@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -40,6 +40,7 @@ const cardStyles = makeStyles((theme) => ({
 
 function Sample(props){
     const cardClasses = cardStyles();
+    const audioRef = useRef(null)
     // const theme = useTheme();
     // console.log(theme.direction)
 
