@@ -20,7 +20,7 @@ const gridStyles = makeStyles((theme) => ({
 
 const SampleContainer = props => {
     const samples = useSelector(state => state.samples)
-    console.log(samples)
+    
 
     const gridClasses = gridStyles();
     
