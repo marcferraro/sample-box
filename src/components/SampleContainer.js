@@ -20,7 +20,17 @@ const gridStyles = makeStyles((theme) => ({
 
 const SampleContainer = props => {
     const samples = useSelector(state => state.samples)
-    
+
+
+    useEffect(() => {
+        // if (samples.length === 0){
+            fetch('http://localhost:3000/samples')
+            .then(resp => resp.json())
+            .then(samples => {
+                console.log(samples)
+            })
+        // }
+    }, [])
 
     const gridClasses = gridStyles();
     
