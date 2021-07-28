@@ -73,8 +73,8 @@ function Sample(props){
                     <IconButton aria-label="previous">
                         <SkipPreviousIcon />
                     </IconButton>
-                    <IconButton aria-label="play/pause">
-                        <PlayArrowIcon className={cardClasses.playIcon} onClick={handlePlay}/>
+                    <IconButton onClick={handlePlay} aria-label="play/pause">
+                        <PlayArrowIcon className={cardClasses.playIcon}/>
                     </IconButton>
                     <IconButton aria-label="next">
                         <SkipNextIcon />
