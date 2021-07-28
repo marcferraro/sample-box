@@ -5,6 +5,13 @@ export const loginSuccess = (user) => {
   }
 }
 
+export const fetchSampleSuccess = (samples) => {
+  return {
+    type: 'FETCH_SAMPLE_SUCCESS',
+    samples: samples
+  }
+}
+
 export const addSample = (sample) => {
   return {
     type: 'ADD_SAMPLE_SUCCESS',
