@@ -3,6 +3,7 @@ import { connect, useSelector, useDispatch } from 'react-redux';
 import SampleCard from './SampleCard';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
+import { fetchSampleSuccess } from '../actions/index.js'
 
 const gridStyles = makeStyles((theme) => ({
     root: {
@@ -21,15 +22,12 @@ const gridStyles = makeStyles((theme) => ({
 const SampleContainer = props => {
     const samples = useSelector(state => state.samples)
 
-
     useEffect(() => {
-        // if (samples.length === 0){
             fetch('http://localhost:3000/samples')
             .then(resp => resp.json())
             .then(samples => {
                 console.log(samples)
             })
-        // }
     }, [])
 
     const gridClasses = gridStyles();
