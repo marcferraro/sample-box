@@ -29,7 +29,7 @@ const SampleContainer = props => {
             .then(fetchedSamples => {
                 dispatch(fetchSampleSuccess(fetchedSamples))
             })
-    }, [])
+    }, [dispatch])
 
     const gridClasses = gridStyles();
     
