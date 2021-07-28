@@ -1,15 +1,18 @@
 const samplesReducer = (state=[], action) => {
     switch (action.type){
-        case "LOGIN_SUCCESS":
-            let samples = []
-            fetch('http://localhost:3000/samples')
-            .then(resp => resp.json())
-            .then(data => {
-                samples = [...data]
-                console.log(data, 'data')
-            }) 
-            console.log(samples,'samples')
-            return [...state, ...samples]
+        // case "LOGIN_SUCCESS":
+        //     let samples = []
+        //     fetch('http://localhost:3000/samples')
+        //     .then(resp => resp.json())
+        //     .then(data => {
+        //         samples = [...data]
+        //         console.log(data, 'data')
+        //     }) 
+        //     console.log(samples,'samples')
+        //     return [...state, ...samples]
+        case 'FETCH_SAMPLE_SUCCESS':
+            console.log('success!')
+            return []
         case "ADD_SAMPLE_SUCCESS":
             return [...state, action.sample]
         case "UPDATE_SAMPLE":
