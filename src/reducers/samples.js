@@ -12,7 +12,8 @@ const samplesReducer = (state=[], action) => {
         //     return [...state, ...samples]
         case 'FETCH_SAMPLE_SUCCESS':
             console.log('success!')
-            return []
+            console.log(action.samples)
+            return [...action.samples]
         case "ADD_SAMPLE_SUCCESS":
             return [...state, action.sample]
         case "UPDATE_SAMPLE":
