@@ -21,12 +21,13 @@ const gridStyles = makeStyles((theme) => ({
 
 const SampleContainer = props => {
     const samples = useSelector(state => state.samples)
+    const dispatch = useDispatch()
 
     useEffect(() => {
             fetch('http://localhost:3000/samples')
             .then(resp => resp.json())
-            .then(samples => {
-                console.log(samples)
+            .then(fetchedSamples => {
+                dispatch(fetchSampleSuccess(fetchedSamples))
             })
     }, [])
 
