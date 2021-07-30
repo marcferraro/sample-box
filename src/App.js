@@ -50,6 +50,8 @@ function App(props){
               // setUsername("")
           }
       })
+    } else {
+      props.history.push('/login')
     }
   }, [])
 
