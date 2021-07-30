@@ -27,7 +27,8 @@ function App(props){
   // }
 
   useEffect(() => {
-    if(!auth){
+    console.log(auth)
+    if(auth){
       const reqObj = {
         method: "POST",
         headers: {
@@ -50,7 +51,7 @@ function App(props){
           }
       })
     }
-  })
+  }, [])
 
   const theme = createMuiTheme({
     palette: {
