@@ -70,9 +70,9 @@ function Sample(props){
                           Your browser does not support the audio element.
                         </audio>
                   <div className={cardClasses.controls}>
-                    <IconButton aria-label="previous">
+                    {/* <IconButton aria-label="previous">
                         <SkipPreviousIcon />
-                    </IconButton>
+                    </IconButton> */}
                     <IconButton onClick={handlePlay} aria-label="play/pause">
                         <PlayArrowIcon className={cardClasses.playIcon}/>
                     </IconButton>
