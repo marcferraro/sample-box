@@ -70,11 +70,11 @@ function Sample(props){
                   <audio src={"http://localhost:3000" + props.sample.sample_url} ref={audioRef}>
                           Your browser does not support the audio element.
                         </audio>
-                  <div className={cardClasses.controls}>
+                  <Grid className={cardClasses.controls}>
                     <IconButton onClick={handlePlay} aria-label="play/pause">
                         <PlayArrowIcon className={cardClasses.playIcon}/>
                     </IconButton>
-                </div>
+                  </Grid>
             </div>
             <CardMedia
                 className={cardClasses.cover}
