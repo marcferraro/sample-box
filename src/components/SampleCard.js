@@ -15,7 +15,8 @@ import { selectSample } from '../actions';
 
 const cardStyles = makeStyles((theme) => ({
     root: {
-      width: '200px'
+      width: '200px',
+      height: '200px'
     },
     details: {
       display: 'flex',
