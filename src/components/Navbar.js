@@ -11,6 +11,7 @@ import { connect } from 'react-redux';
 const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
+      marginBottom: 15
     },
     // menuButton: {
     //   marginRight: theme.spacing(2),
